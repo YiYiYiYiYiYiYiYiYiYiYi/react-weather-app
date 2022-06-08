@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
       <div className="container">
         
-        <Weather/>
+        <Weather defaultCity="Paris"/>
         <footer>
           This project was coded by Yi and is {" "}
           <a Href="https://github.com/YiYiYiYiYiYiYiYiYiYiYi/react-weather-app" target="_blank"> 
