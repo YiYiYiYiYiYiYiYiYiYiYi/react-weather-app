@@ -31,7 +31,6 @@
 .Weather img{
     height: 64px;
     width: 64px;
-    margin-right: 10px;
     display: inline-block;
     position: relative;
     top: -18px;
@@ -40,7 +39,7 @@
 .Weather .temperature {
     font-weight: bold;
     color: rgb(33, 33, 33);
-    font-size: 64px;
+    font-size: 60px;
     line-height: 64px;
     font-weight: 400;
 }
