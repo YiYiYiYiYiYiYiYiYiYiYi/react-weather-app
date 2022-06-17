@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather (props){
     const [ready, setReady] = useState(false);
@@ -17,7 +18,8 @@ export default function Weather (props){
                 wind: response.data.wind.speed,
                 city: response.data.name,
                 date: new Date(response.data.dt*1000),
-                iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+                iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+                coordinates: response.data.coord
             }
         );
         setReady(true);
@@ -40,7 +42,7 @@ export default function Weather (props){
 
     if (ready){
         return (
-            <div className="Weather">
+            <div className="Weather">  
                 <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="col-9">
@@ -76,10 +78,9 @@ export default function Weather (props){
                                Wind: {weatherData.wind} km/h
                             </li>
                         </ul>
-        
                     </div>
-        
-                </div>
+                </div> 
+                <WeatherForecast coordinates={weatherData.coordinates}/>    
             </div>
             );
     }
@@ -87,4 +88,5 @@ export default function Weather (props){
         search();
         return "Loading...";
     }  
+     
 }
